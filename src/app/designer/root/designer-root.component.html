@@ -1,0 +1,380 @@
+<h3 class="text-left"> Designer </h3>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label [for]="dynamicFormFieldTextArea.key">{{ dynamicFormFieldTextArea.label }}</label>
+            <!-- <app-textarea
+                [dfForm]="dfFormGroup"
+                [dfFormField]="dynamicFormFieldTextArea">
+            </app-textarea> -->
+
+            <button 
+                class="form-control btn btn-primary" 
+                type="button"
+                id="submitMetadata" 
+                name="submitMetadata"
+                (click)="onNewSection()">
+                    Add New Section
+            </button>
+
+            <button 
+                class="form-control btn btn-primary" 
+                type="button"
+                id="submitMetadata" 
+                name="submitMetadata"
+                (click)="onNewDropdown()">
+                    Add New Dropdown
+            </button>
+            <button 
+                class="form-control btn btn-primary" 
+                type="button"
+                id="submitMetadata" 
+                name="submitMetadata"
+                (click)="onNewDate()">
+                    Add New Date
+            </button>
+            <button 
+                class="form-control btn btn-primary" 
+                type="button"
+                id="submitMetadata" 
+                name="submitMetadata"
+                (click)="onNewRange()">
+                    Add New Range
+            </button>
+            <button 
+                class="form-control btn btn-primary" 
+                type="button"
+                id="submitMetadata" 
+                name="submitMetadata"
+                (click)="onNewText()">
+                    Add New Text Field
+            </button>
+            <button 
+                class="form-control btn btn-primary" 
+                type="button"
+                id="submitMetadata" 
+                name="submitMetadata"
+                (click)="onNewToggle()">
+                    Add New Toggle Button
+            </button>
+            <button 
+                class="form-control btn btn-primary" 
+                type="button"
+                id="submitMetadata" 
+                name="submitMetadata"
+                (click)="onNewDependent()">
+                    Add New Dependent List
+            </button>
+            <button 
+                class="form-control btn btn-primary" 
+                type="button"
+                id="submitMetadata" 
+                name="submitMetadata"
+                (click)="onNewOther()">
+                    Add New List with Other
+            </button>
+
+            <div [formGroup]="dfFormGroup" *ngIf="wantnewsection==true">
+                <br><br>
+               
+                Name: <input class="form-control" formControlName="t1" type="text"><br><br>
+                Collapsed: <input id="section_collapsed" type="checkbox">
+                <br><br>
+                <!-- Type: <input id="t2" type='text'><br> -->
+                <br><br><br><br><br><br>
+                
+                    <button 
+                    class="form-control btn btn-primary" 
+                    type="button"
+                    id="submitMetadata" 
+                    name="submitMetadata"
+                    (click)="onNewSectionCreate()">
+                        CREATE
+                </button>
+            </div>
+
+            <div [formGroup]="dfFormGroup" *ngIf="wantnewdropdown==true">
+                    <br><br>
+                    Section: 
+                    <select 
+                    class="form-control" 
+                    style="width: 100%;"  
+                    formControlName="sectionno"
+                    (change)="onSectionSelectChanged()" 
+                    
+                    >
+                        <option value="" disabled selected>Select</option>
+                        <option 
+                            *ngFor="let opt of Options" 
+                            [ngValue]="opt.key">
+                                {{ opt.value }}
+                        </option>
+                </select><br><br>
+                    <!-- Type: <input id="t2" type='text'><br> -->
+                    <br><br><br><br><br><br>
+                    Key: <input class="form-control" formControlName="custom_key" type="text"><br>
+                    Item: <input class="form-control" formControlName="dropdownitem" type="text"><br><br>
+                
+                    <button 
+                        class="form-control btn btn-primary" 
+                        type="button"
+                        id="submitMetadata" 
+                        name="submitMetadata"
+                        (click)="onNewItemAdded()">
+                          Add Item
+                    </button>     <br><br>
+                   
+                   <button 
+                        class="form-control btn btn-primary" 
+                        type="button"
+                        id="submitMetadata" 
+                        name="submitMetadata"
+                        (click)="onNewDropdownCreate()">
+                            CREATE
+                    </button>
+                </div>
+        </div>
+
+        <div [formGroup]="dfFormGroup" *ngIf="wantnewdate==true">
+                <br><br>
+                Section: 
+                <select 
+                class="form-control" 
+                style="width: 100%;"  
+                formControlName="sectionno"
+                (change)="onSectionSelectChanged()" 
+                
+                >
+                    <option value="" disabled selected>Select</option>
+                    <option 
+                        *ngFor="let opt of Options" 
+                        [ngValue]="opt.key">
+                            {{ opt.value }}
+                    </option>
+            </select><br><br>
+                <!-- Type: <input id="t2" type='text'><br> -->
+                <br><br><br><br><br><br>
+                Key: <input class="form-control" formControlName="custom_key" type="text"><br><br>
+                    <button 
+                    class="form-control btn btn-primary" 
+                    type="button"
+                    id="submitMetadata" 
+                    name="submitMetadata"
+                    (click)="onNewDateCreate()">
+                        CREATE
+                </button>
+            </div>
+    </div>
+
+    <div [formGroup]="dfFormGroup" *ngIf="wantnewrange==true">
+            <br><br>
+            Section: 
+            <select 
+            class="form-control" 
+            style="width: 100%;"  
+            formControlName="sectionno"
+            (change)="onSectionSelectChanged()" 
+            
+            >
+                <option value="" disabled selected>Select</option>
+                <option 
+                    *ngFor="let opt of Options" 
+                    [ngValue]="opt.key">
+                        {{ opt.value }}
+                </option>
+        </select><br><br>
+            <!-- Type: <input id="t2" type='text'><br> -->
+            <br><br><br><br><br><br>
+            Key: <input class="form-control" formControlName="custom_key" type="text"><br>
+            Min: <input class="form-control" formControlName="range_min" type="text"><br>
+            Max: <input class="form-control" formControlName="range_max" type="text"><br>
+                <button 
+                class="form-control btn btn-primary" 
+                type="button"
+                id="submitMetadata" 
+                name="submitMetadata"
+                (click)="onNewRangeCreate()">
+                    CREATE
+            </button>
+        <!-- </div> -->
+</div>
+<div [formGroup]="dfFormGroup" *ngIf="wantnewtext==true">
+        <br><br>
+        Section: 
+        <select 
+        class="form-control" 
+        style="width: 100%;"  
+        formControlName="sectionno"
+        (change)="onSectionSelectChanged()" 
+        
+        >
+            <option value="" disabled selected>Select</option>
+            <option 
+                *ngFor="let opt of Options" 
+                [ngValue]="opt.key">
+                    {{ opt.value }}
+            </option>
+    </select><br><br>
+        <!-- Type: <input id="t2" type='text'><br> -->
+        <br><br><br><br><br><br>
+        Key: <input class="form-control" formControlName="custom_key" type="text"><br>
+        Default: <input class="form-control" formControlName="text_default" type="text"><br>
+        Max: <input class="form-control" formControlName="text_max" type="text"><br>
+        Disable: <input id="checkDisable" type="checkbox">
+            <button 
+            class="form-control btn btn-primary" 
+            type="button"
+            id="submitMetadata" 
+            name="submitMetadata"
+            (click)="onNewTextCreate()">
+                CREATE
+        </button>
+    <!-- </div> -->
+</div>
+<div [formGroup]="dfFormGroup" *ngIf="wantnewtoggle==true">
+        <br><br>
+        Section: 
+        <select 
+        class="form-control" 
+        style="width: 100%;"  
+        formControlName="sectionno"
+        (change)="onSectionSelectChanged()" 
+        
+        >
+            <option value="" disabled selected>Select</option>
+            <option 
+                *ngFor="let opt of Options" 
+                [ngValue]="opt.key">
+                    {{ opt.value }}
+            </option>
+    </select><br><br>
+        <!-- Type: <input id="t2" type='text'><br> -->
+        <br><br><br><br><br><br>
+        Key: <input class="form-control" formControlName="custom_key" type="text"><br>
+        Default True: <input id="toggleDefault" type="checkbox">
+            <button 
+            class="form-control btn btn-primary" 
+            type="button"
+            id="submitMetadata" 
+            name="submitMetadata"
+            (click)="onNewToggleCreate()">
+                CREATE
+        </button>
+    <!-- </div> -->
+</div>
+    <!-- </div> -->
+
+    <div [formGroup]="dfFormGroup" *ngIf="wantnewrange==true">
+            <br><br>
+            Section: 
+            <select 
+            class="form-control" 
+            style="width: 100%;"  
+            formControlName="sectionno"
+            (change)="onSectionSelectChanged()" 
+            
+            >
+                <option value="" disabled selected>Select</option>
+                <option 
+                    *ngFor="let opt of Options" 
+                    [ngValue]="opt.key">
+                        {{ opt.value }}
+                </option>
+        </select><br><br>
+            <!-- Type: <input id="t2" type='text'><br> -->
+            <br><br><br><br><br><br>
+            Key: <input class="form-control" formControlName="custom_key" type="text"><br>
+            Min: <input class="form-control" formControlName="range_min" type="text"><br>
+            Max: <input class="form-control" formControlName="range_max" type="text"><br>
+                <button 
+                class="form-control btn btn-primary" 
+                type="button"
+                id="submitMetadata" 
+                name="submitMetadata"
+                (click)="onNewRangeCreate()">
+                    CREATE
+            </button>
+        <!-- </div> -->
+</div>
+<div [formGroup]="dfFormGroup" *ngIf="wantnewdependent==true">
+    <br><br>
+    Section: 
+    <select 
+    class="form-control" 
+    style="width: 100%;"  
+    formControlName="sectionno"
+    (change)="onSectionSelectChanged()" 
+    
+    >
+        <option value="" disabled selected>Select</option>
+        <option 
+            *ngFor="let opt of Options" 
+            [ngValue]="opt.key">
+                {{ opt.value }}
+        </option>
+</select><br><br>
+    <!-- Type: <input id="t2" type='text'><br> -->
+    <br><br><br><br><br><br>
+    Key: <input class="form-control" formControlName="custom_key" type="text"><br><br>
+        <button 
+        class="form-control btn btn-primary" 
+        type="button"
+        id="submitMetadata" 
+        name="submitMetadata"
+        (click)="onNewDependentCreate()">
+            CREATE
+    </button>
+</div>
+
+<div [formGroup]="dfFormGroup" *ngIf="wantnewtextother==true">
+    <br><br>
+    Section: 
+    <select 
+    class="form-control" 
+    style="width: 100%;"  
+    formControlName="sectionno"
+    (change)="onSectionSelectChanged()" 
+    
+    >
+        <option value="" disabled selected>Select</option>
+        <option 
+            *ngFor="let opt of Options" 
+            [ngValue]="opt.key">
+                {{ opt.value }}
+        </option>
+</select><br><br>
+    <!-- Type: <input id="t2" type='text'><br> -->
+    <br><br><br><br><br><br>
+    Key: <input class="form-control" formControlName="custom_key" type="text"><br><br>
+        <button 
+        class="form-control btn btn-primary" 
+        type="button"
+        id="submitMetadata" 
+        name="submitMetadata"
+        (click)="onNewOtherCreate()">
+            CREATE
+    </button>
+</div>
+
+    <div class="col-md-12 form-group">
+        <button 
+            class="form-control btn btn-primary" 
+            type="button"
+            id="submitMetadata" 
+            name="submitMetadata"
+            (click)="onSubmit()">
+                Submit
+        </button>
+        <br>
+        <button 
+            class="form-control btn btn-primary" 
+            type="button"
+            id="submitMetadata" 
+            name="submitMetadata"
+            (click)="onResetJSON()">
+                RESET JSON
+        </button>
+    </div>
+</div>
+
+<iframe class="right" src= "http://localhost:4201/form"> </iframe>

@@ -1,0 +1,11 @@
+<div [formGroup]="dfForm">
+    <label class="switch">
+        <input 
+            class="form-control" 
+            type="checkbox"
+            [id]="dfFormField.key" 
+            [name]="dfFormField.key"
+            [formControlName]="dfFormField.key" />
+        <span class="slider round"></span>
+    </label>
+</div>

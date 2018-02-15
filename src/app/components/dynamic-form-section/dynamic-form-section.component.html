@@ -1,0 +1,13 @@
+<div class="card">
+    <div 
+        class="card-header card-info" 
+        style="cursor: pointer; color: white;" 
+        (click)="toggleSectionDisplay()">
+            {{ dynamicFormSection.label | translate }}
+    </div>
+    <div class="card-block" *ngIf="displaySection">
+        <div *ngFor="let dynamicFormField of dynamicFormSection.getFields()">
+            <df-form-field [dynamicFormField]="dynamicFormField" [dfFormGroup]="dfFormGroup"></df-form-field>
+        </div>
+    </div>
+</div>

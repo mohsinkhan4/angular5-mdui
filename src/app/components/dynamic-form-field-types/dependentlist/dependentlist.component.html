@@ -1,0 +1,34 @@
+<div class="row" [formGroup]="dfForm">
+    <div class="col-md-6">
+        <select 
+            class="form-control" 
+            style="width: 100%;"  
+            (change)="onSelectMaster()" 
+            [id]="dfFormField.key1"
+            [name]="dfFormField.key1"
+            [formControlName]="dfFormField.key">
+                <option value="" disabled selected>Select</option>
+                <option 
+                    *ngFor="let masterOption of masterOptions" 
+                    [ngValue]="masterOption.key">
+                        {{ masterOption.value }}
+                </option>
+        </select>
+    </div>
+    <div class="col-md-6">
+        <select 
+            class="form-control" 
+            style="width: 100%;" 
+            [id]="dfFormField.key"
+            [name]="dfFormField.key"
+            [formControlName]="dfFormField.key">
+                <option value="" disabled selected>Select</option>
+                <option 
+                    *ngFor="let option of options" 
+                    [ngValue]="option.key">
+                        {{ option.value }}
+                </option>
+        </select>
+    </div>
+</div>
+    
