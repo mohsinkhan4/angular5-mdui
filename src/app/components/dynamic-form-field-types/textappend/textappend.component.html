@@ -7,10 +7,6 @@
             [id]="dfFormField.key1"
             [name]="dfFormField.key"
             [formControlName]="dfFormField.key">
-                <!--  <option value="" disabled selected>Select</option>
-                <option value="Doctor ">Doctor</option>
-                <option value="Sir ">Sir</option>
-                <option value="Madame ">Madame</option>  -->
                 <option
                     *ngFor="let masterOption of masterOptions" 
                     [ngValue]="masterOption.key">

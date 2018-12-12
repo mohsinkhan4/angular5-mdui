@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "dev": "ng serve --host=0.0.0.0 --port=4201",
     "deven": "ng serve --host=0.0.0.0 --port=4201 --aot --locale en --i18n-file src/locale/messages.xlf",
     "devfr": "ng serve --host=0.0.0.0 --port=4201 --aot --locale fr --i18n-file src/locale/messages.fr.xlf",

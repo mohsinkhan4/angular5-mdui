@@ -14,23 +14,19 @@ export class TextAppendComponent implements OnInit {
     @Input() dfForm: FormGroup;
     @Input() dfFormField: FormField;
 
-    suffix="Rajvardhan Oak";
-    masterOptions = [];
+    suffix="<name>";
+    masterOptions = [
+      { key: 'Mr.', value: 'Mr.' }, 
+      { key: 'Mrs.', value: 'Mrs.' },
+      { key: 'Miss', value: 'Miss' }, 
+    ];
 
     constructor() { }
 
-    ngOnInit() {
-        
-    }
+    ngOnInit() { }
 
     changecat(value:HTMLSelectElement) {
-      //console.log("**");
-      console.log(this.dfForm.value.dc_textappend);
-
-      this.suffix=this.dfForm.value.dc_textappend+this.suffix;
-      
-
-      
+      this.suffix = this.dfForm.value.dc_textappend + " " + this.suffix;
     }
 
 }

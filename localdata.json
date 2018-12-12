@@ -51,12 +51,6 @@
             ],
             "label": "fbt_section_advanced",
             "visible": false
-        },
-        {
-            "key": "123456",
-            "type": "SECTION",
-            "controllist": [],
-            "visible": false
         }
     ],
     "controls": [
